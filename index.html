@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logistic Regression Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📈 Logistic Regression Playground</h1>
+  <p class="sub">Click to add points (<b class="blue">left click = blue</b>, <b class="orange">right click / shift-click = orange</b>), then press Train and watch gradient descent find the boundary.</p>
+  <main>
+    <canvas id="plot" width="460" height="460"></canvas>
+    <aside>
+      <div class="btns">
+        <button id="train" class="primary">▶ Train</button>
+        <button id="reset">↺ Reset weights</button>
+        <button id="clear">🗑 Clear points</button>
+      </div>
+      <div class="btns">
+        <button data-demo="blobs">Demo: two blobs</button>
+        <button data-demo="ring">Demo: ring</button>
+      </div>
+      <label><input type="checkbox" id="curved" /> Curved boundary (adds x², y², xy features)</label>
+      <label>Learning rate <output id="lrOut">0.5</output><input type="range" id="lr" min="0.05" max="3" step="0.05" value="0.5" /></label>
+      <div class="stats">
+        <div><small>Step</small><strong id="step">0</strong></div>
+        <div><small>Loss</small><strong id="loss">–</strong></div>
+        <div><small>Accuracy</small><strong id="acc">–</strong></div>
+      </div>
+      <p class="base" id="base"></p>
+      <canvas id="curve" width="320" height="140"></canvas>
+      <p class="info" id="weights"></p>
+    </aside>
+  </main>
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
